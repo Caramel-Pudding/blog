@@ -1,16 +1,23 @@
-import Avatar from '../components/avatar'
-import DateFormatter from '../components/date-formatter'
-import CoverImage from './cover-image'
+import { memo, FC } from 'react'
+import {Avatar} from './avatar'
+import {DateFormatter} from './date-formatter'
+import {CoverImage} from './cover-image'
 import Link from 'next/link'
+import { IPost } from '../types/post'
 
-export default function PostPreview({
-  title,
+interface IPostPreviewProps {
+  readonly post: IPost
+}
+
+export const PostPreview: FC<IPostPreviewProps> = memo(({
+  post
+}) => {
+  const {title,
   coverImage,
   date,
   excerpt,
   author,
-  slug,
-}) {
+  slug} = post
   return (
     <div>
       <div className="mb-5">
@@ -34,4 +41,4 @@ export default function PostPreview({
       <Avatar name={author.name} picture={author.picture} />
     </div>
   )
-}
+})

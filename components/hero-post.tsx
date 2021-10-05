@@ -1,16 +1,24 @@
-import Avatar from '../components/avatar'
-import DateFormatter from '../components/date-formatter'
-import CoverImage from '../components/cover-image'
+import { memo, FC } from 'react'
+import {Avatar} from './avatar'
+import {DateFormatter} from './date-formatter'
+import {CoverImage} from './cover-image'
 import Link from 'next/link'
+import { IPost } from '../types/post'
 
-export default function HeroPost({
-  title,
+
+interface IHeroPostProps {
+  readonly post: IPost
+}
+
+export const HeroPost: FC<IHeroPostProps> = memo(({
+  post
+}) => {
+  const {title,
   coverImage,
   date,
   excerpt,
   author,
-  slug,
-}) {
+  slug} = post
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -40,4 +48,4 @@ export default function HeroPost({
       </div>
     </section>
   )
-}
+})

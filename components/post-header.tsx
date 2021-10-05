@@ -1,9 +1,18 @@
-import Avatar from '../components/avatar'
-import DateFormatter from '../components/date-formatter'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+import { memo, FC } from 'react'
+import {Avatar} from './avatar'
+import {DateFormatter} from './date-formatter'
+import {CoverImage} from './cover-image'
+import {PostTitle} from './post-title'
+import { IAuthor } from '../types/author'
 
-export default function PostHeader({ title, coverImage, date, author }) {
+interface IPostHeaderProps {
+  readonly title: string
+  readonly coverImage: string
+  readonly date: string
+  readonly author: IAuthor
+}
+
+export const PostHeader: FC<IPostHeaderProps> = memo(({ title, coverImage, date, author }) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -23,4 +32,4 @@ export default function PostHeader({ title, coverImage, date, author }) {
       </div>
     </>
   )
-}
+})

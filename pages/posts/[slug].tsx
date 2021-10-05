@@ -1,18 +1,27 @@
+import { memo, FC } from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
-import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
+import {Container} from '../../components/container'
+import {PostBody} from '../../components/post-body'
+import {Header} from '../../components/header'
+import {PostHeader} from '../../components/post-header'
+import {Layout} from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
+import {PostTitle} from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
+import { IPost } from '../../types/post'
 
-export default function Post({ post, morePosts, preview }) {
+interface IPostProps {
+  readonly post: IPost;
+  readonly morePosts: IPost[];
+  readonly preview: boolean
+}
+
+const Post: FC<IPostProps> = memo(({ post, morePosts, preview }) => {
   const router = useRouter()
+  console.log(post)
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -20,7 +29,7 @@ export default function Post({ post, morePosts, preview }) {
     <Layout preview={preview}>
       <Container>
         <Header />
-        {router.isFallback ? (
+        {(router.isFallback || !post.content) ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
@@ -29,7 +38,7 @@ export default function Post({ post, morePosts, preview }) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta property="og:image" content={post.ogImage?.url} />
               </Head>
               <PostHeader
                 title={post.title}
@@ -44,9 +53,16 @@ export default function Post({ post, morePosts, preview }) {
       </Container>
     </Layout>
   )
+})
+
+
+interface GetStaticPropsParams {
+  params: {
+    slug: string;
+  }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: GetStaticPropsParams) {
   const post = getPostBySlug(params.slug, [
     'title',
     'date',
@@ -82,3 +98,5 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+
+export default Post

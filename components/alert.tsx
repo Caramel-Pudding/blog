@@ -1,8 +1,13 @@
-import Container from './container'
+import {Container} from './container'
 import cn from 'classnames'
 import { EXAMPLE_PATH } from '../lib/constants'
+import { memo, FC } from 'react'
 
-export default function Alert({ preview }) {
+interface IAlertProps {
+  readonly preview: boolean
+}
+
+export const Alert: FC<IAlertProps> = memo(({ preview }) => {
   return (
     <div
       className={cn('border-b', {
@@ -39,4 +44,4 @@ export default function Alert({ preview }) {
       </Container>
     </div>
   )
-}
+})

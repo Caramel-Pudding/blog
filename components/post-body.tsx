@@ -1,6 +1,11 @@
+import { memo, FC } from 'react'
 import markdownStyles from './markdown-styles.module.css'
 
-export default function PostBody({ content }) {
+interface IPostBodyProps {
+  readonly content: string
+}
+
+export const PostBody:FC<IPostBodyProps> = memo(({ content }) => {
   return (
     <div className="max-w-2xl mx-auto">
       <div
@@ -9,4 +14,4 @@ export default function PostBody({ content }) {
       />
     </div>
   )
-}
+})
