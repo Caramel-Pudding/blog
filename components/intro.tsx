@@ -1,5 +1,5 @@
-import { memo, FC } from 'react'
-import { CMS_NAME } from '../lib/constants'
+import { memo, FC } from "react";
+import { CMS_NAME } from "../lib/constants";
 
 export const Intro: FC = memo(() => {
   return (
@@ -8,15 +8,15 @@ export const Intro: FC = memo(() => {
         Blog.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
+        A statically generated blog example using{" "}
         <a
-          href="https://nextjs.org/"
           className="underline hover:text-success duration-200 transition-colors"
+          href="https://nextjs.org/"
         >
           Next.js
-        </a>{' '}
+        </a>{" "}
         and {CMS_NAME}.
       </h4>
     </section>
-  )
-})
+  );
+});

@@ -1,10 +1,10 @@
-import { memo, FC } from 'react'
-import {Alert} from './alert'
-import {Footer} from './footer'
-import {Meta} from './meta'
+import { memo, FC } from "react";
+import { Alert } from "./alert";
+import { Footer } from "./footer";
+import { Meta } from "./meta";
 
 interface ILayoutPrpops {
-  readonly preview: boolean
+  readonly preview: boolean;
 }
 
 export const Layout: FC<ILayoutPrpops> = memo(({ preview, children }) => {
@@ -17,5 +17,5 @@ export const Layout: FC<ILayoutPrpops> = memo(({ preview, children }) => {
       </div>
       <Footer />
     </>
-  )
-})
+  );
+});

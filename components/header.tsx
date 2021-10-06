@@ -1,5 +1,5 @@
-import { memo, FC } from 'react'
-import Link from 'next/link'
+import { memo, FC } from "react";
+import Link from "next/link";
 
 export const Header: FC = memo(() => {
   return (
@@ -9,5 +9,5 @@ export const Header: FC = memo(() => {
       </Link>
       .
     </h2>
-  )
-})
+  );
+});

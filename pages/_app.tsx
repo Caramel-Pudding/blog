@@ -1,7 +1,10 @@
-import type { AppProps } from 'next/app'
+import { memo, FC } from "react";
+import type { AppProps } from "next/app";
 
-import '../styles/index.css'
+import "../styles/index.css";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp: FC<AppProps> = memo(({ Component, pageProps }) => {
+  return <Component {...pageProps} />;
+});
+
+export default MyApp;

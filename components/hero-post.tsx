@@ -1,32 +1,24 @@
-import { memo, FC } from 'react'
-import {Avatar} from './avatar'
-import {DateFormatter} from './date-formatter'
-import {CoverImage} from './cover-image'
-import Link from 'next/link'
-import { IPost } from '../types/post'
-
+import { memo, FC } from "react";
+import Link from "next/link";
+import { Avatar } from "./avatar";
+import { DateFormatter } from "./date-formatter";
+import { CoverImage } from "./cover-image";
+import { IPost } from "../types/post";
 
 interface IHeroPostProps {
-  readonly post: IPost
+  readonly post: IPost;
 }
 
-export const HeroPost: FC<IHeroPostProps> = memo(({
-  post
-}) => {
-  const {title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug} = post
+export const HeroPost: FC<IHeroPostProps> = memo(({ post }) => {
+  const { title, coverImage, date, excerpt, author, slug } = post;
   return (
     <section>
       <div className="mb-8 md:mb-16">
         <CoverImage
-          title={title}
-          src={coverImage}
-          slug={slug}
           height={620}
+          slug={slug}
+          src={coverImage}
+          title={title}
           width={1240}
         />
       </div>
@@ -47,5 +39,5 @@ export const HeroPost: FC<IHeroPostProps> = memo(({
         </div>
       </div>
     </section>
-  )
-})
+  );
+});

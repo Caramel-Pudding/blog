@@ -1,9 +1,9 @@
-import { memo, FC } from 'react'
-import { IPost } from '../types/post'
-import { PostPreview } from './post-preview'
+import { memo, FC } from "react";
+import { IPost } from "../types/post";
+import { PostPreview } from "./post-preview";
 
 interface IMoreStoriesProps {
-  readonly posts: IPost[]
+  readonly posts: IPost[];
 }
 
 export const MoreStories: FC<IMoreStoriesProps> = memo(({ posts }) => {
@@ -14,11 +14,9 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(({ posts }) => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
         {posts.map((post) => (
-          <PostPreview
-            post={post}
-          />
+          <PostPreview post={post} />
         ))}
       </div>
     </section>
-  )
-})
+  );
+});
