@@ -9,7 +9,9 @@
     "test:watch": "yarn test --watch",
     "test:coverage": "yarn test --coverage",
     "eslint": "eslint ./ --ext .js,.jsx,.ts,.tsx --cache",
-    "eslint:fix": "eslint ./ --ext .js,.jsx,.ts,.tsx --cache --fix"
+    "eslint:fix": "eslint ./ --ext .js,.jsx,.ts,.tsx --cache --fix",
+    "stylelint": "stylelint '**/*.css'",
+    "stylelint:fix": "stylelint '**/*.css' --fix"
   },
   "dependencies": {
     "classnames": "^2.3.0",
@@ -51,6 +53,8 @@
     "prettier": "^2.1.2",
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.3"
   }
