@@ -1,5 +1,5 @@
 import { memo, FC } from "react";
-import { Container } from "./container";
+import { Container } from "@/components/container";
 
 export const Footer: FC = memo(() => {
   return (

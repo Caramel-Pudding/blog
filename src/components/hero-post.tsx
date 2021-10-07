@@ -1,8 +1,8 @@
 import { memo, FC } from "react";
 import Link from "next/link";
-import { DateFormatter } from "./date-formatter";
-import { CoverImage } from "./cover-image";
-import { IPost } from "../types/post";
+import { DateFormatter } from "@/components/date-formatter";
+import { CoverImage } from "@/components/cover-image";
+import { IPost } from "@/types/post";
 
 interface IHeroPostProps {
   readonly post: IPost;

@@ -39,20 +39,14 @@
         "@/pages/*": [
           "pages/*"
         ],
-        "@/prisma/*": [
-          "prisma/*"
-        ],
-        "@/redux/*": [
-          "redux/*"
-        ],
         "@/styles/*": [
           "styles/*"
         ],
         "@/types/*": [
           "types/*"
         ],
-        "@/utilities/*": [
-          "utilities/*"
+        "@/lib/*": [
+          "lib/*"
         ],
         "@/tests/*": [
           "__tests__/*"

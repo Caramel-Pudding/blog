@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
-import { Footer } from "./footer";
-import { Meta } from "./meta";
+import { Footer } from "@/components/footer";
+import { Meta } from "@/components/meta";
 
 export const Layout: FC = memo(({ children }) => {
   return (

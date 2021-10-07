@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
-import { IPost } from "../types/post";
-import { PostPreview } from "./post-preview";
+import { IPost } from "@/types/post";
+import { PostPreview } from "@/components/post-preview";
 
 interface IMoreStoriesProps {
   readonly posts: IPost[];

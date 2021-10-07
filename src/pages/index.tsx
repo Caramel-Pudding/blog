@@ -1,13 +1,13 @@
 import { memo, FC } from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { Container } from "../components/container";
-import { MoreStories } from "../components/more-stories";
-import { HeroPost } from "../components/hero-post";
-import { Intro } from "../components/intro";
-import { Layout } from "../components/layout";
-import { getAllPosts } from "../lib/api";
-import { IPost } from "../types/post";
+import { Container } from "@/components/container";
+import { MoreStories } from "@/components/more-stories";
+import { HeroPost } from "@/components/hero-post";
+import { Intro } from "@/components/intro";
+import { Layout } from "@/components/layout";
+import { getAllPosts } from "@/lib/api";
+import { IPost } from "@/types/post";
 
 interface IIndexProps {
   readonly allPosts: IPost[];

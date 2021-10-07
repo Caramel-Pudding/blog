@@ -1,5 +1,5 @@
 import { memo, FC } from "react";
-import markdownStyles from "./markdown-styles.module.css";
+import markdownStyles from "@/components/markdown-styles.module.css";
 
 interface IPostBodyProps {
   readonly content: string;
