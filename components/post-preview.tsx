@@ -1,6 +1,5 @@
 import { memo, FC } from "react";
 import Link from "next/link";
-import { Avatar } from "./avatar";
 import { DateFormatter } from "./date-formatter";
 import { CoverImage } from "./cover-image";
 import { IPost } from "../types/post";
@@ -10,7 +9,7 @@ interface IPostPreviewProps {
 }
 
 export const PostPreview: FC<IPostPreviewProps> = memo(({ post }) => {
-  const { title, coverImage, date, excerpt, author, slug } = post;
+  const { title, coverImage, date, excerpt, slug } = post;
   return (
     <div>
       <div className="mb-5">
@@ -31,7 +30,6 @@ export const PostPreview: FC<IPostPreviewProps> = memo(({ post }) => {
         <DateFormatter dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </div>
   );
 });

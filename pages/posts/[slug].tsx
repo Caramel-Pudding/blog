@@ -11,7 +11,6 @@ import { PostHeader } from "../../components/post-header";
 import { Layout } from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import { PostTitle } from "../../components/post-title";
-import { CMS_NAME } from "../../lib/constants";
 import { markdownToHtml } from "../../lib/markdown-to-html";
 import { IPost } from "../../types/post";
 
@@ -20,13 +19,13 @@ interface IPostProps {
   readonly preview: boolean;
 }
 
-const Post: FC<IPostProps> = memo(({ post, preview }) => {
+const Post: FC<IPostProps> = memo(({ post }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         <Header />
         {router.isFallback || !post.content ? (
@@ -35,13 +34,10 @@ const Post: FC<IPostProps> = memo(({ post, preview }) => {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title} | Blog Template</title>
                 <meta content={post.ogImage?.url} property="og:image" />
               </Head>
               <PostHeader
-                author={post.author}
                 coverImage={post.coverImage}
                 date={post.date}
                 title={post.title}

@@ -1,6 +1,5 @@
 import { memo, FC } from "react";
 import Link from "next/link";
-import { Avatar } from "./avatar";
 import { DateFormatter } from "./date-formatter";
 import { CoverImage } from "./cover-image";
 import { IPost } from "../types/post";
@@ -10,7 +9,7 @@ interface IHeroPostProps {
 }
 
 export const HeroPost: FC<IHeroPostProps> = memo(({ post }) => {
-  const { title, coverImage, date, excerpt, author, slug } = post;
+  const { title, coverImage, date, excerpt, slug } = post;
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -35,7 +34,6 @@ export const HeroPost: FC<IHeroPostProps> = memo(({ post }) => {
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
         </div>
       </div>
     </section>

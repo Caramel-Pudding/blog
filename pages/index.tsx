@@ -7,7 +7,6 @@ import { HeroPost } from "../components/hero-post";
 import { Intro } from "../components/intro";
 import { Layout } from "../components/layout";
 import { getAllPosts } from "../lib/api";
-import { CMS_NAME } from "../lib/constants";
 import { IPost } from "../types/post";
 
 interface IIndexProps {
@@ -19,9 +18,9 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
   const morePosts = allPosts.slice(1);
   return (
     <>
-      <Layout preview={false}>
+      <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Blog Template</title>
         </Head>
         <Container>
           <Intro />

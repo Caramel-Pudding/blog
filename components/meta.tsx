@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
 import Head from "next/head";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "../lib/constants";
+import { HOME_OG_IMAGE_URL } from "../lib/constants";
 
 export const Meta: FC = memo(() => {
   return (
@@ -33,10 +33,7 @@ export const Meta: FC = memo(() => {
       <meta content="/favicon/browserconfig.xml" name="msapplication-config" />
       <meta content="#000" name="theme-color" />
       <link href="/feed.xml" rel="alternate" type="application/rss+xml" />
-      <meta
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-        name="description"
-      />
+      <meta content="Blog Template" name="description" />
       <meta content={HOME_OG_IMAGE_URL} property="og:image" />
     </Head>
   );
