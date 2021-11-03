@@ -1,4 +1,5 @@
 import { memo, FC, FormEvent } from "react";
+import cn from "classnames";
 
 interface ISearchProps {
   readonly handler: (input: string) => void;
@@ -11,14 +12,25 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
   };
 
   return (
-    <label>
-      Search
-      <input
-        className="bg-accent-1 border-t border-accent-2"
-        placeholder="Title or #Tag"
-        value={value}
-        onChange={inputHandler}
-      />
-    </label>
+    <section className={cn("flex", "justify-center", "mb-12")}>
+      <label className={cn("w-1/2")}>
+        SEARCH
+        <input
+          className={cn(
+            "ml-4",
+            "w-3/4",
+            "rounded-3xl",
+            "leading-loose",
+            "px-4",
+            "bg-accent-1",
+            "border-t",
+            "border-accent-2"
+          )}
+          placeholder="Title or #Tag"
+          value={value}
+          onChange={inputHandler}
+        />
+      </label>
+    </section>
   );
 });
