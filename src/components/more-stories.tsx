@@ -18,9 +18,9 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(
           "md:grid-cols-2",
           "xl:grid-cols-3",
           "md:gap-x-16",
-          "xl:gap-x-32",
+          "xl:gap-x-28",
           "gap-y-20",
-          "xl:gap-y-32",
+          "xl:gap-y-28",
           "mb-32"
         )}
       >
