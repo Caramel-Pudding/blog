@@ -10,7 +10,7 @@ interface IHeroPostProps {
 }
 
 export const HeroPost: FC<IHeroPostProps> = memo(({ post, searchByTag }) => {
-  const { title, coverImage, date, excerpt, slug, tags } = post;
+  const { title, coverImage, date, slug, tags } = post;
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -39,9 +39,6 @@ export const HeroPost: FC<IHeroPostProps> = memo(({ post, searchByTag }) => {
           <div className="mb-4 md:mb-0 text-lg">
             <DateFormatter dateString={date} />
           </div>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
         </div>
       </div>
     </section>

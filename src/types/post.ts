@@ -3,7 +3,6 @@ export interface IPost {
   date: string;
   coverImage: string;
   slug: string;
-  excerpt?: string;
   content?: string;
   tags?: string[];
   ogImage?: {

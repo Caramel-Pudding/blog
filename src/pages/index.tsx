@@ -76,7 +76,6 @@ export const getStaticProps: GetStaticProps = async () => {
     "slug",
     "author",
     "coverImage",
-    "excerpt",
     "tags",
   ]);
 
