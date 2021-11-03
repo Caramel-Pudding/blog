@@ -5,6 +5,7 @@ export interface IPost {
   slug: string;
   excerpt?: string;
   content?: string;
+  tags?: string[];
   ogImage?: {
     url: string;
   };

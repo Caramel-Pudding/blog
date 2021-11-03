@@ -6,10 +6,11 @@ import { IPost } from "@/types/post";
 
 interface IHeroPostProps {
   readonly post: IPost;
+  readonly searchByTag: (tag: string) => void;
 }
 
-export const HeroPost: FC<IHeroPostProps> = memo(({ post }) => {
-  const { title, coverImage, date, excerpt, slug } = post;
+export const HeroPost: FC<IHeroPostProps> = memo(({ post, searchByTag }) => {
+  const { title, coverImage, date, excerpt, slug, tags } = post;
   return (
     <section>
       <div className="mb-8 md:mb-16">
@@ -28,6 +29,13 @@ export const HeroPost: FC<IHeroPostProps> = memo(({ post }) => {
               <a className="hover:underline">{title}</a>
             </Link>
           </h3>
+          <div className="mb-4 md:mb-0 text-lg">
+            {tags?.map((tag) => (
+              <button key={tag} type="button" onClick={() => searchByTag(tag)}>
+                {tag}
+              </button>
+            ))}
+          </div>
           <div className="mb-4 md:mb-0 text-lg">
             <DateFormatter dateString={date} />
           </div>

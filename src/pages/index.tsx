@@ -1,10 +1,10 @@
-import { memo, FC } from "react";
+import { memo, FC, useState } from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Container } from "@/components/container";
 import { MoreStories } from "@/components/more-stories";
 import { HeroPost } from "@/components/hero-post";
-import { Intro } from "@/components/intro";
+import { Search } from "@/components/search";
 import { Layout } from "@/components/layout";
 import { getAllPosts } from "@/lib/api";
 import { IPost } from "@/types/post";
@@ -14,8 +14,42 @@ interface IIndexProps {
 }
 
 const Index: FC<IIndexProps> = memo(({ allPosts }) => {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+  const [searchField, setSearchField] = useState<string>("");
+  const [posts, setPosts] = useState<IPost[]>(allPosts);
+
+  const filterByTitle = (value: string): IPost[] => {
+    return allPosts.filter((post) => post.title.includes(value));
+  };
+
+  const filterByTag = (value: string): IPost[] => {
+    return allPosts.filter(
+      (post) => !!post.tags?.filter((tag) => tag.includes(value)).length
+    );
+  };
+
+  const filterPosts = (value: string): IPost[] => {
+    let filteredPosts: IPost[];
+
+    if (!value) {
+      filteredPosts = allPosts;
+    } else if (value[0] === "#") {
+      filteredPosts = filterByTag(value);
+    } else {
+      filteredPosts = filterByTitle(value);
+    }
+
+    return filteredPosts;
+  };
+
+  const search = (value: string) => {
+    const filteredPosts = filterPosts(value);
+    setPosts(filteredPosts);
+    setSearchField(value);
+  };
+
+  const heroPost = posts[0];
+  const morePosts = posts.slice(1);
+
   return (
     <>
       <Layout>
@@ -23,9 +57,11 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
           <title>Blog Template</title>
         </Head>
         <Container>
-          <Intro />
-          {heroPost && <HeroPost post={heroPost} />}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <Search handler={search} value={searchField} />
+          {heroPost && <HeroPost post={heroPost} searchByTag={search} />}
+          {morePosts.length > 0 && (
+            <MoreStories posts={morePosts} searchByTag={search} />
+          )}
         </Container>
       </Layout>
     </>
@@ -41,6 +77,7 @@ export const getStaticProps: GetStaticProps = async () => {
     "author",
     "coverImage",
     "excerpt",
+    "tags",
   ]);
 
   return {
