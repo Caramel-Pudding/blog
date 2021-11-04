@@ -1,8 +1,21 @@
 module.exports = {
-  purge: [
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-  ],
+  purge: {
+    content: [
+      "./src/components/**/*.{js,ts,jsx,tsx}",
+      "./src/pages/**/*.{js,ts,jsx,tsx}",
+    ],
+    safelist: [
+      'hover:bg-#lol',
+      "hover:bg-#kek",
+      "hover:bg-#cheburek",
+      'bg-#lol',
+      "bg-#kek",
+      "bg-#cheburek",
+      'border-#lol',
+      "border-#kek",
+      "border-#cheburek",
+    ]
+  },
   theme: {
     extend: {
       colors: {

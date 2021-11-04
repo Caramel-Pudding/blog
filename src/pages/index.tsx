@@ -76,7 +76,7 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
           {heroPost && <HeroPost post={heroPost} searchByTag={searchByTag} />}
           {morePosts.length > 0 && (
             <MoreStories
-              chosenTag={searchField}
+              chosenTag={chosenTag}
               posts={morePosts}
               searchByTag={searchByTag}
             />
