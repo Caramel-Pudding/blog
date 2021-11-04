@@ -6,10 +6,11 @@ import { PostPreview } from "@/components/post-preview";
 interface IMoreStoriesProps {
   readonly posts: IPost[];
   readonly searchByTag: (tag: string) => void;
+  readonly chosenTag: string;
 }
 
 export const MoreStories: FC<IMoreStoriesProps> = memo(
-  ({ posts, searchByTag }) => {
+  ({ posts, searchByTag, chosenTag }) => {
     return (
       <section
         className={cn(
@@ -25,7 +26,12 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(
         )}
       >
         {posts.map((post) => (
-          <PostPreview key={post.slug} post={post} searchByTag={searchByTag} />
+          <PostPreview
+            key={post.slug}
+            chosenTag={chosenTag}
+            post={post}
+            searchByTag={searchByTag}
+          />
         ))}
       </section>
     );

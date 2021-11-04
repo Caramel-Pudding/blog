@@ -2,7 +2,7 @@
 title: 'Preview Mode for Static Generation'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: '2020-03-16T05:35:07.322Z'
-tags: ['#kek', '#cheburek']
+tags: ['#kek', '#cheburek', '#sampleTag1', '#sampleTag2', '#sampleTag3','#sampleTag4','#sampleTag5','#sampleTag6','#sampleTag7','#sampleTag8','#sampleTag9','#sampleTag10','#sampleTag11','#sampleTag12','#sampleTag13','#sampleTag14','#sampleTag15','#sampleTag16','#sampleTag17','#sampleTag18','#sampleTag19','#sampleTag20','#sampleTag21','#sampleTag22',]
 ogImage:
   url: '/assets/blog/preview/cover.jpg'
 ---

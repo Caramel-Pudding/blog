@@ -1,24 +1,18 @@
-import { memo, FC, MouseEvent } from "react";
+import { memo, FC } from "react";
 import Link from "next/link";
 import cn from "classnames";
 import { DateFormatter } from "@/components/date-formatter";
 import { IPost } from "@/types/post";
+import { TagButton } from "./tag-button";
 
 interface IPostPreviewProps {
   readonly post: IPost;
   readonly searchByTag: (tag: string) => void;
+  readonly chosenTag: string;
 }
 
 export const PostPreview: FC<IPostPreviewProps> = memo(
-  ({ post, searchByTag }) => {
-    const tagClickHandler = (
-      event: MouseEvent<HTMLButtonElement>,
-      tag: string
-    ) => {
-      event.preventDefault();
-      searchByTag(tag);
-    };
-
+  ({ post, searchByTag, chosenTag }) => {
     const { title, coverImage, date, slug, tags } = post;
     return (
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -51,20 +45,12 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
             <div>
               <div className="mb-4 md:mb-0 text-lg">
                 {tags?.map((tag) => (
-                  <button
+                  <TagButton
                     key={tag}
-                    className={cn(
-                      "px-2",
-                      "rounded-3xl",
-                      "border-2",
-                      `border-${tag}`,
-                      `hover:bg-${tag}`
-                    )}
-                    type="button"
-                    onClick={(event) => tagClickHandler(event, tag)}
-                  >
-                    {tag}&nbsp;
-                  </button>
+                    clickHandler={searchByTag}
+                    isChosen={tag === chosenTag}
+                    tag={tag}
+                  />
                 ))}
               </div>
               <div className="text-lg mb-4">
