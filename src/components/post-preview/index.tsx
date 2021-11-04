@@ -53,7 +53,13 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
                 {tags?.map((tag) => (
                   <button
                     key={tag}
-                    className={cn("rounded-3xl", "hover:bg-accent-2")}
+                    className={cn(
+                      "px-2",
+                      "rounded-3xl",
+                      "border-2",
+                      `border-${tag}`,
+                      `hover:bg-${tag}`
+                    )}
                     type="button"
                     onClick={(event) => tagClickHandler(event, tag)}
                   >
