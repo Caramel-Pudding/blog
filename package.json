@@ -14,6 +14,9 @@
     "stylelint:fix": "stylelint '**/*.css' --fix",
     "simple-git-hooks:update": "npx simple-git-hooks"
   },
+  "simple-git-hooks": {
+    "pre-commit": "yarn tsc --noEmit && yarn test && npx lint-staged"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*.css": "stylelint --fix"
@@ -58,6 +61,7 @@
     "lint-staged": ">=10",
     "postcss": "^8.2.4",
     "prettier": "^2.1.2",
+    "simple-git-hooks": "^2.7.0",
     "stylelint": "^14.0.1",
     "stylelint-config-standard": "^23.0.0",
     "tailwindcss": "^2.0.2",

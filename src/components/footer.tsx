@@ -6,7 +6,7 @@ export const Footer: FC = memo(() => {
   return (
     <footer className={cn("bg-accent-1", "border-t", "border-accent-2")}>
       <Container>
-        <div>Made by me</div>
+        <div>Made by Me</div>
       </Container>
     </footer>
   );
