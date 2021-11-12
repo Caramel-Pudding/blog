@@ -21,13 +21,13 @@ export const TagsCloud: FC<ISearchProps> = memo(
     const showableTags = isOpen ? availableTags : availableTags.slice(0, 5);
 
     return (
-      <section className={cn("flex", "flex-col", "justify-center", "w-3/4")}>
+      <section className={cn("flex", "flex-col", "justify-center", "w-1/2")}>
         <section
           className={cn(
             "flex",
             "flex-wrap",
             "flex-row",
-            "justify-center",
+            "justify-start",
             "mb-4",
             styles.tags
           )}
