@@ -19,14 +19,10 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
     return (
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
         <a aria-label={title}>
-          <div
+          <article
             className={cn(
-              "flex",
-              "flex-col",
-              "justify-between",
               "rounded-3xl",
               "bg-cover",
-              "p-10",
               "transition",
               "duration-500",
               "ease-in-out",
@@ -39,27 +35,43 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
               backgroundImage: `url(${coverImage})`,
             }}
           >
-            <h3 className={cn("text-3xl", "mb-3", "leading-snug")}>
-              <Link as={`/posts/${slug}`} href="/posts/[slug]">
-                <a className="hover:underline">{title}</a>
-              </Link>
-            </h3>
-            <div>
-              <div className={cn("mb-4", "md:mb-0", "text-lg", styles.tags)}>
-                {tags?.map((tag) => (
-                  <TagButton
-                    key={tag}
-                    clickHandler={searchByTag}
-                    isChosen={tag === chosenTag}
-                    tag={tag}
-                  />
-                ))}
-              </div>
-              <div className={cn("text-lg", "mb-4")}>
-                <DateFormatter dateString={date} />
+            <div
+              className={cn(
+                "flex",
+                "flex-col",
+                "justify-between",
+                "rounded-3xl",
+                "bg-black",
+                "bg-opacity-10",
+                "p-10",
+                "w-full",
+                "h-full",
+                "text-white",
+                "font-bold"
+              )}
+            >
+              <h3 className={cn("text-3xl", "mb-3", "leading-snug")}>
+                <Link as={`/posts/${slug}`} href="/posts/[slug]">
+                  <a className="hover:underline">{title}</a>
+                </Link>
+              </h3>
+              <div>
+                <div className={cn("mb-4", "md:mb-0", "text-lg", styles.tags)}>
+                  {tags?.map((tag) => (
+                    <TagButton
+                      key={tag}
+                      clickHandler={searchByTag}
+                      isChosen={tag === chosenTag}
+                      tag={tag}
+                    />
+                  ))}
+                </div>
+                <div className={cn("text-lg", "mb-4")}>
+                  <DateFormatter dateString={date} />
+                </div>
               </div>
             </div>
-          </div>
+          </article>
         </a>
       </Link>
     );
