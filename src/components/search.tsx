@@ -12,7 +12,7 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
   };
 
   return (
-    <section className={cn("flex", "justify-center", "mb-12")}>
+    <section className={cn("flex", "justify-center")}>
       <label className={cn("w-1/2")}>
         SEARCH
         <input
@@ -26,7 +26,7 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
             "border-t",
             "border-accent-2"
           )}
-          placeholder="Title or #Tag"
+          placeholder="Post Title"
           value={value}
           onChange={inputHandler}
         />

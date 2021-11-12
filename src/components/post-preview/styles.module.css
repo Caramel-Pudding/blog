@@ -1,0 +1,7 @@
+.tags button {
+  @apply mx-2;
+}
+
+.tags button:first-child {
+  @apply ml-0;
+}

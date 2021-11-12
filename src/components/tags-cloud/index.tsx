@@ -1,6 +1,8 @@
 import { memo, FC, useState } from "react";
 import cn from "classnames";
-import { TagButton } from "./tag-button";
+import { TagButton } from "../tag-button";
+
+import styles from "./styles.module.css";
 
 interface ISearchProps {
   readonly handler: (input: string) => void;
@@ -19,16 +21,15 @@ export const TagsCloud: FC<ISearchProps> = memo(
     const showableTags = isOpen ? availableTags : availableTags.slice(0, 5);
 
     return (
-      <section
-        className={cn("flex", "flex-col", "justify-center", "mb-12", "w-1/2")}
-      >
+      <section className={cn("flex", "flex-col", "justify-center", "w-3/4")}>
         <section
           className={cn(
             "flex",
             "flex-wrap",
             "flex-row",
             "justify-center",
-            "mb-4"
+            "mb-4",
+            styles.tags
           )}
         >
           {showableTags.map((tag) => (
@@ -40,10 +41,12 @@ export const TagsCloud: FC<ISearchProps> = memo(
             />
           ))}
         </section>
-
-        <button type="button" onClick={handleShowMoreClick}>
-          {isOpen ? "Show Less, please!" : "Show More"}
-        </button>
+        {/* Пока что сделано хуёво, не рекомендую иметь больше 5 тегов */}
+        {availableTags.length > 5 && (
+          <button type="button" onClick={handleShowMoreClick}>
+            {isOpen ? "Show Less, please!" : "Show More"}
+          </button>
+        )}
       </section>
     );
   }

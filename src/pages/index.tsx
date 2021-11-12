@@ -65,8 +65,10 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
           <title>Blog Template</title>
         </Head>
         <Container>
-          <Search handler={searchByTitle} value={searchField} />
-          <section className={cn("flex", "justify-center")}>
+          <section className={cn("my-8")}>
+            <Search handler={searchByTitle} value={searchField} />
+          </section>
+          <section className={cn("flex", "justify-center", "my-8")}>
             <TagsCloud
               availableTags={availableTags}
               handler={searchByTag}

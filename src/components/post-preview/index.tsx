@@ -3,7 +3,9 @@ import Link from "next/link";
 import cn from "classnames";
 import { DateFormatter } from "@/components/date-formatter";
 import { IPost } from "@/types/post";
-import { TagButton } from "./tag-button";
+import { TagButton } from "../tag-button";
+
+import styles from "./styles.module.css";
 
 interface IPostPreviewProps {
   readonly post: IPost;
@@ -37,13 +39,13 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
               backgroundImage: `url(${coverImage})`,
             }}
           >
-            <h3 className="text-3xl mb-3 leading-snug">
+            <h3 className={cn("text-3xl", "mb-3", "leading-snug")}>
               <Link as={`/posts/${slug}`} href="/posts/[slug]">
                 <a className="hover:underline">{title}</a>
               </Link>
             </h3>
             <div>
-              <div className="mb-4 md:mb-0 text-lg">
+              <div className={cn("mb-4", "md:mb-0", "text-lg", styles.tags)}>
                 {tags?.map((tag) => (
                   <TagButton
                     key={tag}
@@ -53,7 +55,7 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
                   />
                 ))}
               </div>
-              <div className="text-lg mb-4">
+              <div className={cn("text-lg", "mb-4")}>
                 <DateFormatter dateString={date} />
               </div>
             </div>

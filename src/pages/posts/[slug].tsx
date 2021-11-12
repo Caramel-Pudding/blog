@@ -6,6 +6,7 @@ import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { Container } from "@/components/container";
 import { PostBody } from "@/components/post-body";
+import { Header } from "@/components/header";
 import { PostHeader } from "@/components/post-header";
 import { Layout } from "@/components/layout";
 import { getPostBySlug, getAllPosts } from "@/lib/api";
@@ -26,6 +27,7 @@ const Post: FC<IPostProps> = memo(({ post }) => {
   return (
     <Layout>
       <Container>
+        <Header />
         {router.isFallback || !post.content ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
