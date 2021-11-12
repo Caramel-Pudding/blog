@@ -10,6 +10,7 @@ import { Layout } from "@/components/layout";
 import { getAllPosts } from "@/lib/api";
 import { IPost } from "@/types/post";
 import { Search } from "@/components/search";
+import { EmptySearchStub } from "@/components/empty-search-stub";
 
 interface IIndexProps {
   readonly allPosts: IPost[];
@@ -75,6 +76,11 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
               value={chosenTag}
             />
           </section>
+          {!heroPost && morePosts.length === 0 && (
+            <section className={cn("flex", "justify-center")}>
+              <EmptySearchStub />
+            </section>
+          )}
           {heroPost && <HeroPost post={heroPost} searchByTag={searchByTag} />}
           {morePosts.length > 0 && (
             <MoreStories
