@@ -23,8 +23,11 @@ export const TagButton: FC<ISearchProps> = memo(
           "border-2",
           `border-${tag}`,
           `hover:bg-${tag}`,
+          "text-white",
+          "font-bold",
+          `bg-${tag}`,
           {
-            [`bg-${tag}`]: isChosen,
+            "bg-opacity-50": !isChosen,
           }
         )}
         type="button"
