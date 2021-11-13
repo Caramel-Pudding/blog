@@ -11,6 +11,7 @@ import { IPost } from "@/types/post";
 import { Search } from "@/components/search";
 import { EmptySearchStub } from "@/components/empty-search-stub";
 import { PostPreview } from "@/components/post-preview";
+import { bioPostStub } from "@/consts/bio-post-stub";
 
 interface IIndexProps {
   readonly allPosts: IPost[];
@@ -47,7 +48,7 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
   };
 
   const postsToShow: IPost[] = filterByTitle(filterByTag(allPosts));
-  const heroPost = postsToShow[0];
+  const heroPost = chosenTag ? postsToShow[0] : bioPostStub;
   const morePosts = postsToShow.slice(1);
 
   return (
@@ -79,6 +80,7 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
             <section className={cn("flex", "justify-center", "mb-24")}>
               <PostPreview
                 chosenTag={chosenTag}
+                isBio={!chosenTag}
                 isHeroPost
                 post={heroPost}
                 searchByTag={searchByTag}

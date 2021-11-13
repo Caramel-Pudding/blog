@@ -16,10 +16,11 @@ interface IPostPreviewProps {
     width: number;
   };
   readonly isHeroPost: boolean;
+  readonly isBio: boolean;
 }
 
 export const PostPreview: FC<IPostPreviewProps> = memo(
-  ({ post, searchByTag, chosenTag, sizes, isHeroPost }) => {
+  ({ post, searchByTag, chosenTag, sizes, isHeroPost, isBio }) => {
     const { title, coverImage, date, slug, tags } = post;
     return (
       <article
@@ -36,7 +37,10 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
           backgroundImage: `url(${coverImage})`,
         }}
       >
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <Link
+          as={isBio ? "/bio" : `/posts/${slug}`}
+          href={isBio ? "/bio" : "/posts/[slug]"}
+        >
           <a aria-label={title} className={cn("contents")}>
             <div
               className={cn(
