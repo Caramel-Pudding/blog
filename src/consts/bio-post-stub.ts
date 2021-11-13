@@ -6,5 +6,5 @@ export const bioPostStub: IPost = {
   date: "2020-03-16T05:35:07.322Z",
   tags: [],
   ogImage: { url: "/assets/blog/bio/cover.jpeg" },
-  slug: "/bio",
+  slug: "bio",
 };

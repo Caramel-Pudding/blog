@@ -25,29 +25,31 @@ const Post: FC<IPostProps> = memo(({ post }) => {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <Layout>
-      <Container>
-        <Header />
-        {router.isFallback || !post.content ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article className="mb-32">
-              <Head>
-                <title>{post.title} | Blog Template</title>
-                <meta content={post.ogImage?.url} property="og:image" />
-              </Head>
-              <PostHeader
-                coverImage={post.coverImage}
-                date={post.date}
-                title={post.title}
-              />
-              <PostBody content={post.content} />
-            </article>
-          </>
-        )}
-      </Container>
-    </Layout>
+    <>
+      <Head>
+        <title>{post.title} | Blog Template</title>
+        <meta content={post.ogImage?.url} property="og:image" />
+      </Head>
+      <Layout>
+        <Container>
+          <Header />
+          {router.isFallback || !post.content ? (
+            <PostTitle>Loading…</PostTitle>
+          ) : (
+            <>
+              <article className="mb-32">
+                <PostHeader
+                  coverImage={post.coverImage}
+                  date={post.date}
+                  title={post.title}
+                />
+                <PostBody content={post.content} />
+              </article>
+            </>
+          )}
+        </Container>
+      </Layout>
+    </>
   );
 });
 

@@ -1,17 +1,25 @@
 import { memo, FC } from "react";
-import cn from "classnames";
+import Head from "next/head";
 import { Container } from "@/components/container";
+import { Header } from "@/components/header";
+import { Layout } from "@/components/layout";
+import { bioPostStub } from "@/consts/bio-post-stub";
 
-const Footer: FC = memo(() => {
+const Post: FC = memo(() => {
   return (
-    <footer className={cn("bg-accent-1", "border-t", "border-accent-2")}>
+    <Layout>
       <Container>
-        <section className={cn("flex", "justify-center", "py-8")}>
-          <div>Made by Me</div>
-        </section>
+        <Header />
+        <article className="mb-32">
+          <Head>
+            <title>Author page</title>
+            <meta content={bioPostStub.ogImage?.url} property="og:image" />
+          </Head>
+          Hello, world!
+        </article>
       </Container>
-    </footer>
+    </Layout>
   );
 });
 
-export default Footer;
+export default Post;
