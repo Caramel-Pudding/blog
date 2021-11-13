@@ -6,6 +6,7 @@ import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { Layout } from "@/components/layout";
 import { bioPostStub } from "@/consts/bio-post-stub";
+import { bioImages, bioVideos } from "@/consts/bio-media";
 
 const Post: FC = memo(() => {
   return (
@@ -52,72 +53,28 @@ const Post: FC = memo(() => {
                 "mb-24"
               )}
             >
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
-              <Image
-                alt="Author Image"
-                height={200}
-                src="/assets/blog/bio/baklan.jpg"
-                width={200}
-              />
+              {bioImages.map((image) => (
+                <Image
+                  alt="Author Image"
+                  height={200}
+                  src={`/assets/blog/bio/${image}`}
+                  width={200}
+                />
+              ))}
             </section>
             <div className={cn("flex", "justify-center")}>
               <section className={cn("flex", "flex-col")}>
                 <h2>Мои выступления</h2>
-                <iframe
-                  allow="fullscreen;"
-                  frameBorder="0"
-                  height="315"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="RickRoll"
-                  width="420"
-                />
+                {bioVideos.map((videoUrl) => (
+                  <iframe
+                    allow="fullscreen;"
+                    frameBorder="0"
+                    height="315"
+                    src={videoUrl}
+                    title="RickRoll"
+                    width="420"
+                  />
+                ))}
               </section>
             </div>
           </section>
