@@ -1,6 +1,6 @@
 import { memo, FC } from "react";
+import Image from "next/image";
 import { DateFormatter } from "@/components/date-formatter";
-import { CoverImage } from "@/components/cover-image";
 import { PostTitle } from "@/components/post-title";
 
 interface IPostHeaderProps {
@@ -16,10 +16,11 @@ export const PostHeader: FC<IPostHeaderProps> = memo(
         <PostTitle>{title}</PostTitle>
         <div className="hidden md:block md:mb-12" />
         <div className="mb-8 md:mb-16 sm:mx-0">
-          <CoverImage
+          <Image
+            alt={`Cover Image for ${title}`}
             height={620}
+            layout="responsive"
             src={coverImage}
-            title={title}
             width={1240}
           />
         </div>
