@@ -11,25 +11,28 @@ interface IPostPreviewProps {
   readonly post: IPost;
   readonly searchByTag: (tag: string) => void;
   readonly chosenTag: string;
+  readonly sizes: {
+    height: number;
+    width: number;
+  };
+  readonly isHeroPost: boolean;
 }
 
 export const PostPreview: FC<IPostPreviewProps> = memo(
-  ({ post, searchByTag, chosenTag }) => {
+  ({ post, searchByTag, chosenTag, sizes, isHeroPost }) => {
     const { title, coverImage, date, slug, tags } = post;
     return (
       <article
-        className={cn(
-          "rounded-3xl",
-          "bg-cover",
-          "transition",
-          "duration-500",
-          "ease-in-out",
-          "transform",
-          "hover:-translate-y-4"
-        )}
+        className={cn("rounded-3xl", "bg-cover", {
+          transition: !isHeroPost,
+          "duration-500": !isHeroPost,
+          "ease-in-out": !isHeroPost,
+          transform: !isHeroPost,
+          "hover:-translate-y-4": !isHeroPost,
+        })}
         style={{
-          width: 400,
-          height: 400,
+          width: sizes.width,
+          height: sizes.height,
           backgroundImage: `url(${coverImage})`,
         }}
       >
@@ -50,7 +53,11 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
                 "font-bold"
               )}
             >
-              <h3 className={cn("text-3xl", "mb-3", "leading-snug")}>
+              <h3
+                className={cn("mb-3", "leading-snug", "text-3xl", {
+                  "text-7xl": isHeroPost,
+                })}
+              >
                 <Link as={`/posts/${slug}`} href="/posts/[slug]">
                   <a className="hover:underline">{title}</a>
                 </Link>

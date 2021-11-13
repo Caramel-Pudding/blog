@@ -4,13 +4,13 @@ import cn from "classnames";
 import Head from "next/head";
 import { Container } from "@/components/container";
 import { MoreStories } from "@/components/more-stories";
-import { HeroPost } from "@/components/hero-post";
 import { TagsCloud } from "@/components/tags-cloud";
 import { Layout } from "@/components/layout";
 import { getAllPosts } from "@/lib/api";
 import { IPost } from "@/types/post";
 import { Search } from "@/components/search";
 import { EmptySearchStub } from "@/components/empty-search-stub";
+import { PostPreview } from "@/components/post-preview";
 
 interface IIndexProps {
   readonly allPosts: IPost[];
@@ -75,7 +75,17 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
               <EmptySearchStub />
             </section>
           )}
-          {heroPost && <HeroPost post={heroPost} searchByTag={searchByTag} />}
+          {heroPost && (
+            <section className={cn("flex", "justify-center", "mb-24")}>
+              <PostPreview
+                chosenTag={chosenTag}
+                isHeroPost
+                post={heroPost}
+                searchByTag={searchByTag}
+                sizes={{ width: 1440, height: 620 }}
+              />
+            </section>
+          )}
           {morePosts.length > 0 && (
             <MoreStories
               chosenTag={chosenTag}

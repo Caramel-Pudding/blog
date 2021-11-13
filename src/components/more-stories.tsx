@@ -32,8 +32,10 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(
           <PostPreview
             key={post.slug}
             chosenTag={chosenTag}
+            isHeroPost={false}
             post={post}
             searchByTag={searchByTag}
+            sizes={{ width: 400, height: 400 }}
           />
         ))}
       </section>
