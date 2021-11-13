@@ -17,47 +17,39 @@ interface IIndexProps {
 }
 
 const Index: FC<IIndexProps> = memo(({ allPosts }) => {
-  const [searchField, setSearchField] = useState<string>("");
   const [chosenTag, setChosenTag] = useState<string>("");
-  const [posts, setPosts] = useState<IPost[]>(allPosts);
+  const [searchField, setSearchField] = useState<string>("");
 
   const availableTags: string[] = [
     ...new Set([...allPosts.map((post) => post.tags)].flat()),
   ];
 
-  const filterByTitle = (value: string): IPost[] => {
-    return !value
-      ? allPosts
-      : allPosts.filter((post) => post.title.includes(value));
-  };
-
-  const filterByTag = (value: string): IPost[] => {
-    return !value
-      ? allPosts
-      : allPosts.filter(
-          (post) => !!post.tags?.filter((tag) => tag.includes(value)).length
+  const filterByTag = (posts: IPost[]): IPost[] => {
+    return !chosenTag
+      ? posts
+      : posts.filter(
+          (post) => !!post.tags?.filter((tag) => tag.includes(chosenTag)).length
         );
   };
 
-  const searchByTitle = (value: string) => {
-    const filteredPosts = filterByTitle(value);
-    setPosts(filteredPosts);
-    setSearchField(value);
+  const filterByTitle = (posts: IPost[]): IPost[] => {
+    return !searchField
+      ? posts
+      : posts.filter((post) => post.title.includes(searchField));
   };
+
+  const postsToShow: IPost[] = filterByTitle(filterByTag(allPosts));
 
   const searchByTag = (value: string) => {
     if (value === chosenTag) {
       setChosenTag("");
-      setPosts(allPosts);
     } else {
-      const filteredPosts = filterByTag(value);
-      setPosts(filteredPosts);
       setChosenTag(value);
     }
   };
 
-  const heroPost = posts[0];
-  const morePosts = posts.slice(1);
+  const heroPost = postsToShow[0];
+  const morePosts = postsToShow.slice(1);
 
   return (
     <>
@@ -67,7 +59,10 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
         </Head>
         <Container>
           <section className={cn("flex", "justify-center", "my-8")}>
-            <Search handler={searchByTitle} value={searchField} />
+            <Search
+              handler={(value) => setSearchField(value)}
+              value={searchField}
+            />
           </section>
           <section className={cn("flex", "justify-center", "my-8")}>
             <TagsCloud
