@@ -3,8 +3,6 @@ import cn from "classnames";
 import { IPost } from "@/types/post";
 import { PostPreview } from "@/components/post-preview";
 
-import styles from "./styles.module.css";
-
 interface IMoreStoriesProps {
   readonly posts: IPost[];
   readonly searchByTag: (tag: string) => void;
@@ -16,11 +14,18 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(
     return (
       <section
         className={cn(
-          "flex",
-          "flex-wrap",
-          "justify-center",
-          "lg:justify-between",
-          styles.posts
+          "grid",
+          "justify-items-center",
+          "grid-cols-1",
+          "lg:grid-cols-2",
+          "xl:grid-cols-3",
+          "gap-x-16",
+          "lg:gap-x-20",
+          "xl:gap-x-24",
+          "gap-y-16",
+          "lg:gap-y-20",
+          "xl:gap-y-24",
+          "mb-24"
         )}
       >
         {posts.map((post) => (

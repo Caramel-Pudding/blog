@@ -17,24 +17,24 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
   ({ post, searchByTag, chosenTag }) => {
     const { title, coverImage, date, slug, tags } = post;
     return (
-      <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        <a aria-label={title} className={cn("contents")}>
-          <article
-            className={cn(
-              "rounded-3xl",
-              "bg-cover",
-              "transition",
-              "duration-500",
-              "ease-in-out",
-              "transform",
-              "hover:-translate-y-4"
-            )}
-            style={{
-              width: 400,
-              height: 400,
-              backgroundImage: `url(${coverImage})`,
-            }}
-          >
+      <article
+        className={cn(
+          "rounded-3xl",
+          "bg-cover",
+          "transition",
+          "duration-500",
+          "ease-in-out",
+          "transform",
+          "hover:-translate-y-4"
+        )}
+        style={{
+          width: 400,
+          height: 400,
+          backgroundImage: `url(${coverImage})`,
+        }}
+      >
+        <Link as={`/posts/${slug}`} href="/posts/[slug]">
+          <a aria-label={title} className={cn("contents")}>
             <div
               className={cn(
                 "flex",
@@ -71,9 +71,9 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
                 </div>
               </div>
             </div>
-          </article>
-        </a>
-      </Link>
+          </a>
+        </Link>
+      </article>
     );
   }
 );

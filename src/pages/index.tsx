@@ -24,6 +24,14 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
     ...new Set([...allPosts.map((post) => post.tags)].flat()),
   ];
 
+  const searchByTag = (value: string) => {
+    if (value === chosenTag) {
+      setChosenTag("");
+    } else {
+      setChosenTag(value);
+    }
+  };
+
   const filterByTag = (posts: IPost[]): IPost[] => {
     return !chosenTag
       ? posts
@@ -39,15 +47,6 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
   };
 
   const postsToShow: IPost[] = filterByTitle(filterByTag(allPosts));
-
-  const searchByTag = (value: string) => {
-    if (value === chosenTag) {
-      setChosenTag("");
-    } else {
-      setChosenTag(value);
-    }
-  };
-
   const heroPost = postsToShow[0];
   const morePosts = postsToShow.slice(1);
 
