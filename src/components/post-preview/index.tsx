@@ -62,9 +62,7 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
                   "text-7xl": isHeroPost,
                 })}
               >
-                <Link as={`/posts/${slug}`} href="/posts/[slug]">
-                  <a className="hover:underline">{title}</a>
-                </Link>
+                <span className="hover:underline">{title}</span>
               </h3>
               <div>
                 <div className={cn("mb-4", "md:mb-0", "text-lg", styles.tags)}>
