@@ -18,7 +18,7 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
     const { title, coverImage, date, slug, tags } = post;
     return (
       <Link as={`/posts/${slug}`} href="/posts/[slug]">
-        <a aria-label={title}>
+        <a aria-label={title} className={cn("contents")}>
           <article
             className={cn(
               "rounded-3xl",

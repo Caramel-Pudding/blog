@@ -1,0 +1,3 @@
+.posts article {
+  @apply mb-8 md:mb-16 lg:mb-20 xl:mb-24;
+}

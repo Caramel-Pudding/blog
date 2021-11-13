@@ -19,9 +19,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "#lol": "red",
-        "#kek": "yellow",
-        "#cheburek": "green",
+        "#lol": "#FA7268",
+        "#kek": "#5F4B8B",
+        "#cheburek": "#88b04b",
         "accent-1": "#FAFAFA",
         "accent-2": "#EAEAEA",
         "accent-7": "#333",

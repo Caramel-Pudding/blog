@@ -4,7 +4,7 @@ import cn from "classnames";
 import { myMail, myGitHub, myLinkedIn } from "@/consts/adresses";
 
 export const Socials: React.FC = memo(() => (
-  <section className={cn("flex", "flex-col", "fixed", "left-12")}>
+  <section className={cn("w-1/4", "flex", "justify-between")}>
     <a href={`mailto:${myMail}`}>
       <Image
         alt="e-mail"
