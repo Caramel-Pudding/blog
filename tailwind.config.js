@@ -19,6 +19,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "donate": "#88b04b",
         "#lol": "#FA7268",
         "#kek": "#5F4B8B",
         "#cheburek": "#88b04b",
