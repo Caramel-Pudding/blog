@@ -1,8 +1,17 @@
 import { memo, FC } from "react";
+import cn from "classnames";
 
 export const PostTitle: FC = memo(({ children }) => {
   return (
-    <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+    <h1
+      className={cn(
+        "text-5xl",
+        "md:text-6xl",
+        "lg:text-7xl",
+        "font-bold",
+        "mb-4"
+      )}
+    >
       {children}
     </h1>
   );
