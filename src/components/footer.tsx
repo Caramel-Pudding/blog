@@ -9,7 +9,28 @@ export const Footer: FC = memo(() => {
       <Container>
         <section className={cn("flex", "justify-between", "py-8", "px-16")}>
           <Socials />
-          <div>Made by Me</div>
+          <section>
+            <div>
+              Made by{" "}
+              <a
+                className="underline"
+                href="linkedin.com/in/eric-kuznetsov-953089177/"
+              >
+                Eric Kuznetsov
+              </a>
+              , a humble Frontend developer.
+            </div>
+            <hr />
+            <div>
+              You can find the template of this blog on my{" "}
+              <a
+                className="underline"
+                href="https://github.com/Caramel-Pudding/blog"
+              >
+                GitHub.
+              </a>
+            </div>
+          </section>
         </section>
       </Container>
     </footer>

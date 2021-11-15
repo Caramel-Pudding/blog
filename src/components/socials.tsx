@@ -5,7 +5,15 @@ import { socials } from "@/consts/socials";
 
 export const Socials: React.FC = memo(() => (
   <article
-    className={cn("w-3/4", "lg:w-1/2", "xl:w-2/6", "flex", "justify-between")}
+    className={cn(
+      "w-3/4",
+      "lg:w-1/2",
+      "xl:w-2/6",
+      "flex",
+      "flex-col",
+      "md:flex-row",
+      "justify-between"
+    )}
   >
     {socials.map((social) => (
       <a
