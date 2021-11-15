@@ -3,6 +3,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
+import cn from "classnames";
 import { ParsedUrlQuery } from "querystring";
 import { Container } from "@/components/container";
 import { PostBody } from "@/components/post-body";
@@ -16,7 +17,6 @@ import { IPost } from "@/types/post";
 
 interface IPostProps {
   readonly post: IPost;
-  readonly preview: boolean;
 }
 
 const Post: FC<IPostProps> = memo(({ post }) => {
@@ -44,6 +44,46 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                   title={post.title}
                 />
                 <PostBody content={post.content} />
+                <section className={cn("flex", "justify-center")}>
+                  <button
+                    className={cn(
+                      "w-1/4",
+                      "px-8",
+                      "py-4",
+                      "rounded-l-full",
+                      "border-2",
+                      `border-subscribe`,
+                      `hover:bg-subscribe`,
+                      `bg-subscribe`,
+                      "bg-opacity-80",
+                      "text-white",
+                      "text-3xl",
+                      "font-bold"
+                    )}
+                    type="button"
+                  >
+                    Subscribe!
+                  </button>
+                  <button
+                    className={cn(
+                      "w-1/4",
+                      "px-8",
+                      "py-4",
+                      "rounded-r-full",
+                      "border-2",
+                      `border-donate`,
+                      `hover:bg-donate`,
+                      `bg-donate`,
+                      "bg-opacity-80",
+                      "text-white",
+                      "text-3xl",
+                      "font-bold"
+                    )}
+                    type="button"
+                  >
+                    Donate!
+                  </button>
+                </section>
               </article>
             </>
           )}
