@@ -1,12 +1,17 @@
 interface SocialAdress {
-  href: string;
-  alt: string;
-  iconUrl: string;
+  readonly href: string;
+  readonly alt: string;
+  readonly iconUrl: string;
 }
 
 export const mail = "mail@gmail.com";
 
 export const socials: SocialAdress[] = [
+  {
+    href: `mailto:${mail}`,
+    alt: "Mail",
+    iconUrl: "/assets/icons/email.svg",
+  },
   {
     href: "https://github.com",
     alt: "GitHub",

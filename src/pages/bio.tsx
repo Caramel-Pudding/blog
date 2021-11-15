@@ -23,7 +23,7 @@ const Post: FC = memo(() => {
               <Image
                 alt="Author Image"
                 height={600}
-                src="/assets/blog/bio/baklan.jpg"
+                src="/assets/bio/baklan.jpg"
                 width={600}
               />
               <section>
@@ -55,9 +55,10 @@ const Post: FC = memo(() => {
             >
               {bioImages.map((image) => (
                 <Image
+                  key={image}
                   alt="Author Image"
                   height={200}
-                  src={`/assets/blog/bio/${image}`}
+                  src={`/assets/bio/${image}`}
                   width={200}
                 />
               ))}
@@ -67,6 +68,7 @@ const Post: FC = memo(() => {
                 <h2>Мои выступления</h2>
                 {bioVideos.map((videoUrl) => (
                   <iframe
+                    key={videoUrl}
                     allow="fullscreen;"
                     frameBorder="0"
                     height="315"
