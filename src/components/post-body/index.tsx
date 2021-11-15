@@ -18,21 +18,41 @@ export const PostBody: FC<IPostBodyProps> = memo(({ content }) => {
       <section className={cn("flex", "justify-center")}>
         <button
           className={cn(
+            "w-1/2",
             "px-8",
             "py-4",
-            "rounded-3xl",
+            "rounded-l-full",
             "border-2",
-            `border-donate`,
-            `hover:bg-donate`,
-            `bg-donate`,
-            "bg-opacity-50",
+            `border-subscribe`,
+            `hover:bg-subscribe`,
+            `bg-subscribe`,
+            "bg-opacity-80",
             "text-white",
             "text-3xl",
             "font-bold"
           )}
           type="button"
         >
-          I NEED A DOLLAR!
+          Subscribe!
+        </button>
+        <button
+          className={cn(
+            "w-1/2",
+            "px-8",
+            "py-4",
+            "rounded-r-full",
+            "border-2",
+            `border-donate`,
+            `hover:bg-donate`,
+            `bg-donate`,
+            "bg-opacity-80",
+            "text-white",
+            "text-3xl",
+            "font-bold"
+          )}
+          type="button"
+        >
+          Donate!
         </button>
       </section>
     </div>

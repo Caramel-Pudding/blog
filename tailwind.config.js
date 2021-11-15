@@ -19,7 +19,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "donate": "#88b04b",
+        "donate": "#D0342C",
+        "subscribe": "#2C5B8B",
         "#lol": "#FA7268",
         "#kek": "#5F4B8B",
         "#cheburek": "#88b04b",
