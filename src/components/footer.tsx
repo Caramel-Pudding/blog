@@ -7,7 +7,7 @@ export const Footer: FC = memo(() => {
   return (
     <footer className={cn("bg-accent-1", "border-t", "border-accent-2")}>
       <Container>
-        <section className={cn("flex", "justify-between", "py-8")}>
+        <section className={cn("flex", "justify-between", "py-8", "px-16")}>
           <Socials />
           <div>Made by Me</div>
         </section>

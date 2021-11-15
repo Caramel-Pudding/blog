@@ -13,7 +13,16 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
   };
 
   return (
-    <section className={cn("flex", "relative", "w-1/2")}>
+    <article
+      className={cn(
+        "flex",
+        "justify-center",
+        "relative",
+        "w-full",
+        "sm:w-3/4",
+        "lg:w-1/2"
+      )}
+    >
       <div className={cn("pt-1", "absolute", "left-6")}>
         <Image
           alt="Search"
@@ -25,7 +34,7 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
       <input
         className={cn(
           "ml-4",
-          "w-3/4",
+          "w-full",
           "rounded-3xl",
           "leading-loose",
           "pl-12",
@@ -34,10 +43,10 @@ export const Search: FC<ISearchProps> = memo(({ handler, value }) => {
           "border-t",
           "border-accent-2"
         )}
-        placeholder="Post Title"
+        placeholder="Post title"
         value={value}
         onChange={inputHandler}
       />
-    </section>
+    </article>
   );
 });

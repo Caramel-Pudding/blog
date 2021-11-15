@@ -21,13 +21,22 @@ export const TagsCloud: FC<ISearchProps> = memo(
     const showableTags = isOpen ? availableTags : availableTags.slice(0, 5);
 
     return (
-      <section className={cn("flex", "flex-col", "justify-center", "w-1/2")}>
+      <article
+        className={cn(
+          "flex",
+          "flex-col",
+          "justify-center",
+          "w-full",
+          "sm:w-3/4",
+          "lg:w-1/2"
+        )}
+      >
         <section
           className={cn(
             "flex",
             "flex-wrap",
             "flex-row",
-            "justify-start",
+            "justify-center",
             "mb-4",
             styles.tags
           )}
@@ -47,7 +56,7 @@ export const TagsCloud: FC<ISearchProps> = memo(
             {isOpen ? "Show Less, please!" : "Show More"}
           </button>
         )}
-      </section>
+      </article>
     );
   }
 );
