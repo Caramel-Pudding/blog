@@ -71,11 +71,6 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
               value={chosenTag}
             />
           </section>
-          {!heroPost && morePosts.length === 0 && (
-            <section className={cn("flex", "justify-center")}>
-              <EmptySearchStub />
-            </section>
-          )}
           {heroPost && (
             <section className={cn("flex", "justify-center", "mb-24")}>
               <PostPreview
@@ -86,6 +81,11 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
                 searchByTag={searchByTag}
                 sizes={{ width: 1440, height: 620 }}
               />
+            </section>
+          )}
+          {morePosts.length === 0 && (
+            <section className={cn("flex", "justify-center")}>
+              <EmptySearchStub />
             </section>
           )}
           {morePosts.length > 0 && (
