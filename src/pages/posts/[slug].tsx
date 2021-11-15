@@ -47,7 +47,8 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                 <section className={cn("flex", "justify-center")}>
                   <button
                     className={cn(
-                      "w-1/4",
+                      "w-1/2",
+                      "lg:w-1/4",
                       "px-8",
                       "py-4",
                       "rounded-l-full",
@@ -66,7 +67,8 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                   </button>
                   <button
                     className={cn(
-                      "w-1/4",
+                      "w-1/2",
+                      "lg:w-1/4",
                       "px-8",
                       "py-4",
                       "rounded-r-full",
