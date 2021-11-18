@@ -109,15 +109,15 @@ const Post: FC = memo(() => {
                   "mb-24"
                 )}
               >
-                {bioVideos.map((videoUrl) => (
+                {bioVideos.map((video) => (
                   <iframe
-                    key={videoUrl}
+                    key={video.title}
                     allow="fullscreen;"
                     className="w-full"
                     frameBorder="0"
                     height="400"
-                    src={videoUrl}
-                    title="RickRoll"
+                    src={video.url}
+                    title={video.title}
                   />
                 ))}
               </section>
