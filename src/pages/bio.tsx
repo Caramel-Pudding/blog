@@ -19,66 +19,109 @@ const Post: FC = memo(() => {
         <Container>
           <Header />
           <section className="mb-32">
-            <section className={cn("flex", "justify-around", "mb-24")}>
-              <Image
-                alt="Author Image"
-                height={600}
-                src="/assets/bio/baklan.jpg"
-                width={600}
-              />
-              <section>
-                <h1 className={cn("text-5xl")}>Привет, я - Баклан!</h1>
-                <span>Хто я?</span>
-                <ul>
-                  <li>Животное</li>
-                  <li>Птица</li>
-                  <li>Хороший друг</li>
-                  <li>И незаменимый товарищ</li>
-                </ul>
-              </section>
-            </section>
             <section
               className={cn(
-                "grid",
-                "justify-items-center",
-                "grid-cols-1",
-                "lg:grid-cols-3",
-                "xl:grid-cols-5",
-                "gap-x-4",
-                "lg:gap-x-8",
-                "xl:gap-x-12",
-                "gap-y-4",
-                "lg:gap-y-8",
-                "xl:gap-y-12",
-                "mb-24"
+                "flex",
+                "flex-col",
+                "items-center",
+                "md:flex-row",
+                "justify-around",
+                "mb-12"
               )}
             >
-              {bioImages.map((image) => (
+              <article className={cn("w-full", "md:w-1/2")}>
                 <Image
-                  key={image}
                   alt="Author Image"
-                  height={200}
-                  src={`/assets/bio/${image}`}
-                  width={200}
+                  className={cn("rounded-3xl")}
+                  height={600}
+                  src="/assets/bio/portrait.jpg"
+                  width={500}
                 />
-              ))}
+              </article>
+              <section className={cn("w-full", "md:w-1/2")}>
+                <h2 className={cn("text-5xl", "text-center", "mb-8")}>
+                  Привет, я - Антон!
+                </h2>
+                <div className={cn("text-justify", "mb-8")}>
+                  Меня зовут Антон Назаров. С 2017 года идентифицирую себя как
+                  iOS разработчик. Посидел в Apple (контрактором), Glovo,
+                  Tiffany &amp; Co, Autodesk. Умею в реактивщину, графику и,
+                  конечно, в хорошую архитектуру.
+                </div>
+                <div className={cn("text-xl", "text-center", "mb-8")}>
+                  <a
+                    className="underline"
+                    href="https://drive.google.com/drive/folders/1ItEgCnLYCiaaZIDw450lHGeeHXAbHjBl?usp=sharing"
+                  >
+                    Мое резюме
+                  </a>
+                  .
+                </div>
+                <div className={cn("text-justify", "mb-8")}>
+                  Своим талантом считаю умение подмечать неудобную правду и не
+                  бояться ее высмеивать, поэтому и существует этот блог.
+                  Основополагающим делом жизни является публичное говорение
+                  ртом. Получается это у меня хорошо, поэтому я успел стать
+                  преподавателем в универе, автором подкаста, стендап-комиком,
+                  докладчиком, ведущим зала и ведущим корпоратива. Вот портфолио
+                  моих выступлений, а если вам захочется разбавить свое
+                  мероприятие нескучным контентом, просто пишите в телеграмм.
+                </div>
+              </section>
             </section>
-            <div className={cn("flex", "justify-center")}>
-              <section className={cn("flex", "flex-col")}>
-                <h2>Мои выступления</h2>
+            <section>
+              <h2 className={cn("text-4xl", "text-center", "mb-8")}>
+                А ещё я люблю переодеваться!
+              </h2>
+              <section
+                className={cn(
+                  "grid",
+                  "grid-cols-1",
+                  "lg:grid-cols-2",
+                  "xl:grid-cols-3",
+                  "gap-4",
+                  "mb-24"
+                )}
+              >
+                {bioImages.map((image) => (
+                  <Image
+                    key={image}
+                    alt="Author Image"
+                    className={cn("rounded-3xl")}
+                    height={450}
+                    src={`/assets/bio/${image}`}
+                    width={400}
+                  />
+                ))}
+              </section>
+            </section>
+            <section>
+              <h2 className={cn("text-4xl", "text-center", "mb-8")}>
+                Мои выступления
+              </h2>
+              <section
+                className={cn(
+                  "grid",
+                  "justify-items-center",
+                  "grid-cols-1",
+                  "lg:grid-cols-2",
+                  "gap-12",
+                  "mb-24"
+                )}
+              >
                 {bioVideos.map((videoUrl) => (
                   <iframe
                     key={videoUrl}
                     allow="fullscreen;"
+                    className="w-full"
                     frameBorder="0"
-                    height="315"
+                    height="400"
                     src={videoUrl}
                     title="RickRoll"
-                    width="420"
                   />
                 ))}
               </section>
-            </div>
+            </section>
           </section>
         </Container>
       </Layout>

@@ -18,7 +18,7 @@ export const Footer: FC = memo(() => {
               >
                 Eric Kuznetsov
               </a>
-              , a humble Frontend developer.
+              , a humble Frontend dev.
             </div>
             <hr />
             <div>
