@@ -6,7 +6,9 @@ import { Container } from "@/components/container";
 import { Header } from "@/components/header";
 import { Layout } from "@/components/layout";
 import { bioPostStub } from "@/consts/bio-post-stub";
-import { bioImages, bioVideos } from "@/consts/bio-media";
+import { bioImages, bioNonTechVideos, bioTechVideos } from "@/consts/bio-media";
+import { VideoGrid } from "@/components/video-grid";
+import { ImageGrid } from "@/components/image-grid";
 
 const Post: FC = memo(() => {
   return (
@@ -76,59 +78,15 @@ const Post: FC = memo(() => {
                 </div>
               </section>
             </section>
-            <section>
-              <h2 className={cn("text-4xl", "text-center", "mb-8")}>
-                А ещё я люблю переодеваться!
-              </h2>
-              <section
-                className={cn(
-                  "grid",
-                  "grid-cols-1",
-                  "lg:grid-cols-2",
-                  "xl:grid-cols-3",
-                  "gap-4",
-                  "mb-24"
-                )}
-              >
-                {bioImages.map((image) => (
-                  <Image
-                    key={image}
-                    alt="Author Image"
-                    className={cn("rounded-3xl")}
-                    height={450}
-                    src={`/assets/bio/${image}`}
-                    width={400}
-                  />
-                ))}
-              </section>
-            </section>
-            <section>
-              <h2 className={cn("text-4xl", "text-center", "mb-8")}>
-                Мои выступления
-              </h2>
-              <section
-                className={cn(
-                  "grid",
-                  "justify-items-center",
-                  "grid-cols-1",
-                  "lg:grid-cols-2",
-                  "gap-12",
-                  "mb-24"
-                )}
-              >
-                {bioVideos.map((video) => (
-                  <iframe
-                    key={video.title}
-                    allow="fullscreen;"
-                    className="w-full"
-                    frameBorder="0"
-                    height="400"
-                    src={video.url}
-                    title={video.title}
-                  />
-                ))}
-              </section>
-            </section>
+            <VideoGrid title="Технические выступления" videos={bioTechVideos} />
+            <ImageGrid
+              images={bioImages}
+              title="А ещё я люблю переодеваться!"
+            />
+            <VideoGrid
+              title="Нетехнические выступления"
+              videos={bioNonTechVideos}
+            />
           </section>
         </Container>
       </Layout>
