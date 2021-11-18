@@ -23,13 +23,20 @@ const Post: FC = memo(() => {
               className={cn(
                 "flex",
                 "flex-col",
+                "lg:flex-row",
                 "items-center",
-                "md:flex-row",
-                "justify-around",
                 "mb-12"
               )}
             >
-              <article className={cn("w-full", "md:w-1/2")}>
+              <article
+                className={cn(
+                  "w-full",
+                  "lg:w-1/2",
+                  "mr-0",
+                  "lg:mr-8",
+                  "text-center"
+                )}
+              >
                 <Image
                   alt="Author Image"
                   className={cn("rounded-3xl")}
@@ -38,7 +45,7 @@ const Post: FC = memo(() => {
                   width={500}
                 />
               </article>
-              <section className={cn("w-full", "md:w-1/2")}>
+              <section className={cn("w-full", "lg:w-1/2")}>
                 <h2 className={cn("text-5xl", "text-center", "mb-8")}>
                   Привет, я - Антон!
                 </h2>
