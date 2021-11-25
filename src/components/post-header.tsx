@@ -11,25 +11,23 @@ interface IPostHeaderProps {
 }
 
 export const PostHeader: FC<IPostHeaderProps> = memo(
-  ({ title, coverImage, date }) => {
-    return (
-      <>
-        <section className={cn("flex", "flex-col", "items-center")}>
-          <PostTitle>{title}</PostTitle>
-          <div className={cn("mb-6", "text-lg")}>
-            <DateFormatter dateString={date} />
-          </div>
-        </section>
-        <div className={cn("mb-8", "md:mb-16", "sm:mx-0")}>
-          <Image
-            alt={`Cover Image for ${title}`}
-            height={620}
-            layout="responsive"
-            src={coverImage}
-            width={1240}
-          />
+  ({ title, coverImage, date }) => (
+    <>
+      <section className={cn("flex", "flex-col", "items-center")}>
+        <PostTitle>{title}</PostTitle>
+        <div className={cn("mb-6", "text-lg")}>
+          <DateFormatter dateString={date} />
         </div>
-      </>
-    );
-  }
+      </section>
+      <div className={cn("mb-8", "md:mb-16", "sm:mx-0")}>
+        <Image
+          alt={`Cover Image for ${title}`}
+          height={620}
+          layout="responsive"
+          src={coverImage}
+          width={1240}
+        />
+      </div>
+    </>
+  )
 );
