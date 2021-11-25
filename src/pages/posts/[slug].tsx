@@ -14,6 +14,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/api";
 import { PostTitle } from "@/components/post-title";
 import { markdownToHtml } from "@/lib/markdown-to-html";
 import { IPost } from "@/types/post";
+import { donateUrl, twitterUrl } from "@/consts/socials";
 
 interface IPostProps {
   readonly post: IPost;
@@ -45,11 +46,10 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                 />
                 <PostBody content={post.content} />
                 <section className={cn("flex", "justify-center")}>
-                  <button
+                  <a
                     className={cn(
                       "w-1/2",
                       "lg:w-1/4",
-                      "px-8",
                       "py-4",
                       "rounded-l-full",
                       "border-2",
@@ -58,18 +58,19 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                       `bg-subscribe`,
                       "bg-opacity-80",
                       "text-white",
+                      "text-center",
                       "text-3xl",
                       "font-bold"
                     )}
+                    href={twitterUrl}
                     type="button"
                   >
                     Subscribe!
-                  </button>
-                  <button
+                  </a>
+                  <a
                     className={cn(
                       "w-1/2",
                       "lg:w-1/4",
-                      "px-8",
                       "py-4",
                       "rounded-r-full",
                       "border-2",
@@ -78,13 +79,15 @@ const Post: FC<IPostProps> = memo(({ post }) => {
                       `bg-donate`,
                       "bg-opacity-80",
                       "text-white",
+                      "text-center",
                       "text-3xl",
                       "font-bold"
                     )}
+                    href={donateUrl}
                     type="button"
                   >
                     Donate!
-                  </button>
+                  </a>
                 </section>
               </article>
             </>
