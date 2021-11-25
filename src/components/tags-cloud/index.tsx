@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 interface ISearchProps {
   readonly handler: (input: string) => void;
   readonly value: string;
-  readonly availableTags: string[];
+  readonly availableTags: ReadonlyArray<string>;
 }
 
 export const TagsCloud: FC<ISearchProps> = memo(

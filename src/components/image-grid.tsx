@@ -4,8 +4,8 @@ import Image from "next/image";
 import { IImage } from "@/types/media";
 
 interface PhotosProps {
-  title: string;
-  images: IImage[];
+  readonly title: string;
+  readonly images: ReadonlyArray<IImage>;
 }
 
 export const ImageGrid: FC<PhotosProps> = memo(({ title, images }) => {

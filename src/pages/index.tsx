@@ -14,14 +14,14 @@ import { PostPreview } from "@/components/post-preview";
 import { bioPostStub } from "@/consts/bio-post-stub";
 
 interface IIndexProps {
-  readonly allPosts: IPost[];
+  readonly allPosts: ReadonlyArray<IPost>;
 }
 
 const Index: FC<IIndexProps> = memo(({ allPosts }) => {
   const [chosenTag, setChosenTag] = useState<string>("");
   const [searchField, setSearchField] = useState<string>("");
 
-  const availableTags: string[] = [
+  const availableTags: ReadonlyArray<string> = [
     ...new Set([...allPosts.map((post) => post.tags)].flat()),
   ];
 
@@ -33,7 +33,7 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
     }
   };
 
-  const filterByTag = (posts: IPost[]): IPost[] => {
+  const filterByTag = (posts: ReadonlyArray<IPost>): ReadonlyArray<IPost> => {
     return !chosenTag
       ? posts
       : posts.filter(
@@ -41,13 +41,15 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
         );
   };
 
-  const filterByTitle = (posts: IPost[]): IPost[] => {
+  const filterByTitle = (posts: ReadonlyArray<IPost>): ReadonlyArray<IPost> => {
     return !searchField
       ? posts
       : posts.filter((post) => post.title.includes(searchField));
   };
 
-  const postsToShow: IPost[] = filterByTitle(filterByTag(allPosts));
+  const postsToShow: ReadonlyArray<IPost> = filterByTitle(
+    filterByTag(allPosts)
+  );
   const heroPost = chosenTag ? postsToShow[0] : bioPostStub;
   const morePosts = postsToShow.slice(1);
 

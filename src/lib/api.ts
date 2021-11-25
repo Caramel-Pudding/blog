@@ -5,11 +5,14 @@ import { IPost } from "@/types/post";
 
 const postsDirectory = path.join(process.cwd(), "_posts");
 
-export function getPostSlugs(): string[] {
+export function getPostSlugs(): ReadonlyArray<string> {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []): IPost {
+export function getPostBySlug(
+  slug: string,
+  fields: ReadonlyArray<string> = []
+): IPost {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = path.join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -35,7 +38,9 @@ export function getPostBySlug(slug: string, fields: string[] = []): IPost {
   return items as IPost;
 }
 
-export function getAllPosts(fields: string[] = []): IPost[] {
+export function getAllPosts(
+  fields: ReadonlyArray<string> = []
+): ReadonlyArray<IPost> {
   const slugs = getPostSlugs();
   return (
     slugs

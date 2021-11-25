@@ -4,7 +4,7 @@ import { IPost } from "@/types/post";
 import { PostPreview } from "@/components/post-preview";
 
 interface IMoreStoriesProps {
-  readonly posts: IPost[];
+  readonly posts: ReadonlyArray<IPost>;
   readonly searchByTag: (tag: string) => void;
   readonly chosenTag: string;
 }

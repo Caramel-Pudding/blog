@@ -1,6 +1,6 @@
 import { IImage, IVideo } from "@/types/media";
 
-export const bioImages: IImage[] = [
+export const bioImages: ReadonlyArray<IImage> = [
   { url: "standup.jpg" },
   { url: "crossdressing_1.jpg" },
   { url: "crossdressing_2.jpg" },
@@ -10,7 +10,7 @@ export const bioImages: IImage[] = [
   { url: "hysterical.jpg" },
 ];
 
-export const bioNonTechVideos: IVideo[] = [
+export const bioNonTechVideos: ReadonlyArray<IVideo> = [
   { title: "подводку 1", url: "https://www.youtube.com/embed/EjU4nkz1y4Q" },
   {
     title: "подводку 2",
@@ -34,7 +34,7 @@ export const bioNonTechVideos: IVideo[] = [
   },
 ];
 
-export const bioTechVideos: IVideo[] = [
+export const bioTechVideos: ReadonlyArray<IVideo> = [
   {
     title: "Доклад про RxFlow",
     url: "https://www.youtube.com/embed/b0aCv7rlKx4",

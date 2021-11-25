@@ -3,8 +3,8 @@ import cn from "classnames";
 import { IVideo } from "@/types/media";
 
 interface VideosProps {
-  title: string;
-  videos: IVideo[];
+  readonly title: string;
+  readonly videos: ReadonlyArray<IVideo>;
 }
 
 export const VideoGrid: FC<VideosProps> = memo(({ title, videos }) => {

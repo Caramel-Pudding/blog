@@ -4,7 +4,7 @@ export interface IPost {
   coverImage: string;
   slug: string;
   content?: string;
-  tags: string[];
+  tags: ReadonlyArray<string>;
   ogImage?: {
     url: string;
   };
