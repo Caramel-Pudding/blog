@@ -14,6 +14,8 @@ export const instagramUrl = "https://www.instagram.com/m0rtymerr/";
 export const youtubeUrl =
   "https://www.youtube.com/channel/UChgyWucAyMDU_Xt9BLBlzrQ";
 export const donateUrl = "https://www.tinkoff.ru/cf/ZUlVxscn4J";
+export const resumeUrl =
+  "https://drive.google.com/drive/folders/1ItEgCnLYCiaaZIDw450lHGeeHXAbHjBl?usp=sharing";
 
 export const socials: SocialAdress[] = [
   {
