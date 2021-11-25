@@ -28,6 +28,7 @@ export const VideoGrid: FC<VideosProps> = memo(({ title, videos }) => {
             className="w-full"
             frameBorder="0"
             height="400"
+            loading="lazy"
             src={video.url}
             title={video.title}
           />
