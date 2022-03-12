@@ -1,7 +1,6 @@
 import { IImage, IVideo } from "@/types/media";
 
 export const bioImages: ReadonlyArray<IImage> = [
-  { url: "standup.jpg" },
   { url: "crossdressing_1.jpg" },
   { url: "crossdressing_2.jpg" },
   { url: "crossdressing_3.jpg" },
