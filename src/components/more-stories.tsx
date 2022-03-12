@@ -32,7 +32,7 @@ export const MoreStories: FC<IMoreStoriesProps> = memo(
           isHeroPost={false}
           post={post}
           searchByTag={searchByTag}
-          sizes={{ width: 400, height: 400 }}
+          sizes={{ width: 380, height: 380 }}
         />
       ))}
     </section>

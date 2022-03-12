@@ -85,12 +85,11 @@ const Index: FC<IIndexProps> = memo(({ allPosts }) => {
               />
             </section>
           )}
-          {morePosts.length === 0 && (
+          {morePosts.length === 0 ? (
             <section className={cn("flex", "justify-center")}>
               <EmptySearchStub />
             </section>
-          )}
-          {morePosts.length > 0 && (
+          ) : (
             <MoreStories
               chosenTag={chosenTag}
               posts={morePosts}

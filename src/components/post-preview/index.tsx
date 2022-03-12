@@ -24,7 +24,7 @@ export const PostPreview: FC<IPostPreviewProps> = memo(
     const { title, coverImage, date, slug, tags } = post;
     return (
       <article
-        className={cn("rounded-3xl", "bg-cover", {
+        className={cn("rounded-3xl", "bg-cover", "bg-top", {
           transition: !isHeroPost,
           "duration-500": !isHeroPost,
           "ease-in-out": !isHeroPost,
